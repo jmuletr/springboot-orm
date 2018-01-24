@@ -12,7 +12,7 @@ public class Vers {
     private String vers;
     @Column(name = "ordre")
     private short ordre;
-    @Column(name = "glosa_idglosa")
+    @Column(name = "glosa_idglosa", insertable = false, updatable = false)
     private Integer glosaId;
     @ManyToOne(optional = false, targetEntity = Glosa.class)
     @JoinColumn(name = "glosa_Idglosa")
