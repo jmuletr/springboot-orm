@@ -6,14 +6,12 @@ import javax.persistence.*;
 public class Vers {
     @Id
     @Column(name = "idvers")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idVers;
     @Column(name = "vers")
     private String vers;
     @Column(name = "ordre")
     private short ordre;
-    @Column(name = "glosa_idglosa", insertable = false, updatable = false)
-    private Integer glosaId;
 
     private Vers() {
     }
@@ -40,13 +38,5 @@ public class Vers {
 
     public void setOrdre(short ordre) {
         this.ordre = ordre;
-    }
-
-    public Integer getGlosaId() {
-        return glosaId;
-    }
-
-    public void setGlosaId(Integer glosaId) {
-        this.glosaId = glosaId;
     }
 }

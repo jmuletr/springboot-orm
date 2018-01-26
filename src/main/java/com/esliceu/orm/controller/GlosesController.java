@@ -2,6 +2,8 @@ package com.esliceu.orm.controller;
 
 import com.esliceu.orm.domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +21,12 @@ public class GlosesController {
     @RequestMapping("/getAllGloses")
     public List<Glosa> findAll() {
         return (List) glosaRepository.findAll();
+    }
+
+    @RequestMapping("/addGlosa")
+    public ResponseEntity<String> glosa(@RequestBody Glosa glosa) {
+        glosaRepository.save(glosa);
+        return ResponseEntity.ok("ok");
     }
 
     @RequestMapping("/getAllVers")

@@ -6,12 +6,12 @@ import java.util.Set;
 @Entity(name = "glosa")
 public class Glosa {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idglosa")
     private Integer id;
     @Column(name = "titol")
     private String titol;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "glosa_idglosa")
     private Set<Vers> vers;
 
