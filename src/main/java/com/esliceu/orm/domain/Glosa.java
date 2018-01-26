@@ -1,6 +1,7 @@
 package com.esliceu.orm.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "glosa")
 public class Glosa {
@@ -10,6 +11,9 @@ public class Glosa {
     private Integer id;
     @Column(name = "titol")
     private String titol;
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "glosa_idglosa")
+    private Set<Vers> vers;
 
     public Glosa() {
     }
@@ -33,5 +37,13 @@ public class Glosa {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Set<Vers> getVers() {
+        return vers;
+    }
+
+    public void setVers(Set<Vers> vers) {
+        this.vers = vers;
     }
 }

@@ -14,9 +14,6 @@ public class Vers {
     private short ordre;
     @Column(name = "glosa_idglosa", insertable = false, updatable = false)
     private Integer glosaId;
-    @ManyToOne(optional = false, targetEntity = Glosa.class)
-    @JoinColumn(name = "glosa_Idglosa")
-    private Glosa Glosa;
 
     private Vers() {
     }
@@ -43,14 +40,6 @@ public class Vers {
 
     public void setOrdre(short ordre) {
         this.ordre = ordre;
-    }
-
-    public Glosa getGlosa() {
-        return Glosa;
-    }
-
-    public void setGlosa(Glosa Glosa) {
-        this.Glosa = Glosa;
     }
 
     public Integer getGlosaId() {
